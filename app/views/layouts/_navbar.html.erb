@@ -1,0 +1,16 @@
+<nav class="navbar navbar-fixed-top navbar-expand-lg">
+  <div class="container">
+    <h5 class="nav">My App</h5>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="p-2"><%= link_to "Home", root_path %></li>
+        <li class="p-2"><%= link_to "Help", static_pages_help_path %></li>
+        <% if user_signed_in? %>
+            <li class="p-2"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li class="p-2"><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</nav>

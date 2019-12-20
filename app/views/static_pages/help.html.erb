@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 text-center">FAQ</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Question</th>
+      <th scope="col">Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @q_and_a.each_with_index do |(question, answer), index|%>
+      <tr>
+        <td><%=index%></td>
+        <td><%=question%></td>
+        <td><%=answer%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<footer class="page-footer fixed-bottom">
+  <div class="text-center">
+    <h5>Need more help? einstein@math.com | mathoverflow.com | wolframalpha.com</h5>
+  </div>
+</footer>
