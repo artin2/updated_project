@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registrations/sign_up_params'
+  get 'registrations/account_update_params'
   devise_for :users
   resources :tweets
   root 'static_pages#home'
