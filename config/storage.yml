@@ -8,7 +8,7 @@ local:
 
 dropbox:
   service: Dropbox
-  access_token: "I8F_SuODwCAAAAAAAAAAC71pODSSvU5yBBlf-AbHIZHXpAt78UiCKJsOUEdkEXWz"
+  access_token: <%= Rails.application.credentials.dig(:dropbox_secret_key) %>
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
