@@ -1,6 +1,5 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
-  before_action :create_session, only: [:create, :new]
 
   # GET /tweets
   # GET /tweets.json
@@ -66,21 +65,6 @@ class TweetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
       @tweet = Tweet.find(params[:id])
-    end
-
-    def create_session
-      # @imgur_session = Imgurapi::Session.instance(client_id: '90d69ca68314ba4', client_secret: 'df3dbd3b89ca8a7eb8e71cd4eaa666929d35fe90', refresh_token: 'f7f498e6a758454b2f98d3bece4cae279c83e2a2')
-      # @imgur_session.image.image_upload("https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg")
-
-      client_id = '90d69ca68314ba4'
-
-      client = Imgur::Client.new(client_id)
-
-      image = Imgur::LocalImage.new('https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg', title: 'Test image')
-
-      uploaded = client.upload(image)
-
-      puts uploaded.link
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
