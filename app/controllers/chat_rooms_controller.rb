@@ -20,6 +20,13 @@ class ChatRoomsController < ApplicationController
   def show
     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
     @message = Message.new
+    if @message.save
+      ChatRoomsChannel.broadcast_to @chat_room,
+                     body: @message.body,
+                     user: @message.user.email
+    else
+      flash[:error] = 'Message not saved!'
+    end
   end
 
   private
