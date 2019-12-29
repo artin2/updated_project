@@ -1,7 +1,11 @@
 module UsersHelper
   def avatar_image
-    if @user.avatar.attached?
-      @user.avatar
+    get_avatar(@user)
+  end
+
+  def get_avatar(user)
+    if user.avatar.attached?
+      user.avatar
     else
       image_url("avatar.png")
     end

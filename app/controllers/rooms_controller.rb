@@ -19,6 +19,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.includes(:messages).find_by(id: params[:id])
+    @message = Message.new
   end
 
   private
